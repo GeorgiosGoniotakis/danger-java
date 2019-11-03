@@ -1,0 +1,12 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/danger-java
+    docker:
+      - image: circleci/openjdk:11.0.5-jdk-stretch # the primary container, where your job's commands are run
+    steps:
+      - checkout # check out the code in the project directory
+      - run:
+          name: Gradle build and check
+          command:
+            ./gradlew build && ./gradlew check

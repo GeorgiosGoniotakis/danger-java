@@ -1,0 +1,12 @@
+kind: pipeline
+clone:
+  path: github.com/GeorgiosGoniotakis/danger-java
+
+steps:
+  - name: build
+    image: openjdk:11
+    environment:
+      GRADLE_USER_HOME: ~/.gradle
+    commands:
+      - ./gradlew build
+      - ./gradlew check
